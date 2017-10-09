@@ -1,0 +1,25 @@
+﻿@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+
+@{
+    ViewBag.Title = "SoloLectura";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+}
+
+@(Html.DeltaGridHtmlHelper("listado").
+        AsignarScriptMaster(scriptMaster).
+        MostrarOpcionesDeltaGrid(false).
+        AsignarTipo(typeof(TicketConfigProp)).
+        AsignarPermisos(true,false,true).//Aqui se configuran los permisos de la pantalla: Insertar, Eliminar, Modificar
+        AsignarTitulo("Lista de tickets"))
+@section scripts{
+    @scriptMaster.ToHtmlString()
+<script>
+    $(document).ready(function () {
+        $("input[tag='fecha']").datetimepicker({ lang: 'es', format: 'd/m/Y', timepicker: false, closeOnDateSelect: true, closeOnWithoutClick: true });
+    });
+    </script>
+}
+

@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaGridMVC.Hibrido", "DeltaGridMVC.Hibrido\DeltaGridMVC.Hibrido.csproj", "{9E9D08A5-A540-4BF0-BC66-3C2E4A2A5D6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api y Web separados", "Api y Web separados", "{26338AA0-5212-4EDC-9CB9-45290ECD14D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaGridMVC.Ejemplo.Web", "DeltaGridMVC.Ejemplo.Web\DeltaGridMVC.Ejemplo.Web.csproj", "{E39AB1EF-E463-4F77-81ED-8685D1089A67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaGridMVC.Ejemplo.Api", "DeltaGridMVC.Ejemplo.Api\DeltaGridMVC.Ejemplo.Api.csproj", "{CDFA55A2-BFD1-42B4-9957-A572BBBA8B1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaGridMVC.Ejemplo.Modelos", "DeltaGridMVC.Ejemplo.Modelos\DeltaGridMVC.Ejemplo.Modelos.csproj", "{D5F1429D-AB41-4D12-9097-83A039AFD03F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E9D08A5-A540-4BF0-BC66-3C2E4A2A5D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E9D08A5-A540-4BF0-BC66-3C2E4A2A5D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E9D08A5-A540-4BF0-BC66-3C2E4A2A5D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E9D08A5-A540-4BF0-BC66-3C2E4A2A5D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E39AB1EF-E463-4F77-81ED-8685D1089A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E39AB1EF-E463-4F77-81ED-8685D1089A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E39AB1EF-E463-4F77-81ED-8685D1089A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E39AB1EF-E463-4F77-81ED-8685D1089A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDFA55A2-BFD1-42B4-9957-A572BBBA8B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDFA55A2-BFD1-42B4-9957-A572BBBA8B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDFA55A2-BFD1-42B4-9957-A572BBBA8B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDFA55A2-BFD1-42B4-9957-A572BBBA8B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E39AB1EF-E463-4F77-81ED-8685D1089A67} = {26338AA0-5212-4EDC-9CB9-45290ECD14D7}
+		{CDFA55A2-BFD1-42B4-9957-A572BBBA8B1D} = {26338AA0-5212-4EDC-9CB9-45290ECD14D7}
+	EndGlobalSection
+EndGlobal

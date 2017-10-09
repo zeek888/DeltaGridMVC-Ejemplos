@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <dato Id="Simple" Grupo="bas"  Nombre="Lista simple" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="SoloLectura" Grupo="bas"  Nombre="Solo lectura" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="ConfigPermisos" Grupo="bas"  Nombre="Configurar permisos" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="ConfigEditor" Grupo="bas"  Nombre="Configurar editores" Tipo="" Titulo="Lista de tickets con columna y editor fecha modificado"   />
+  <dato Id="ConfigFiltros" Grupo="bas"  Nombre="Configurar filtros cliente" Tipo="" Titulo="Lista de tickets con filtros lista y texto (Cliente)"   />
+  <dato Id="OcultarColumnas-Editores" Grupo="bas"  Nombre="Ocultar columnas y/o editores" Tipo="" Titulo="Lista de tickets sin visualizar la columna TicketId y el editor Clave"   />
+  <dato Id="ConfigNumPaginador" Grupo="bas"  Nombre="Configurar registros por página" Tipo="" Titulo="Lista de tickets mostrando página de datos de 10"   />
+  
+
+  <dato Id="Validaciones" Grupo="int"  Nombre="Agregar validaciones" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="ValidacionPersonal" Grupo="int"  Nombre="Validaciones personales" Tipo="" Titulo="Lista de tickets"   />
+
+  <dato Id="CambiarDisenioTabla" Grupo="av"  Nombre="Cambiar el diseño de la tabla" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="PersonalizarEditor" Grupo="av"  Nombre="Crear editor personalizado" Tipo="" Titulo="Lista de tickets"   />
+  <grupos>
+    <grupo Id="bas" Titulo="Basico" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
+    <grupo Id="int" Titulo="Intermedio" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
+    <grupo Id="av" Titulo="Avanzado" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
+  </grupos>
+
+</config>

@@ -1,0 +1,25 @@
+﻿@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+@{
+        ViewBag.Title = "Lista simple";
+        Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    
+    //El JServer nos permite almacenar los scripts que usarán la o las instancias que existan en esta página
+    //NOTA: Solo debe existir una sola instancia de esta clase en cada página
+    var scriptMaster = new JServer();
+
+}
+
+@*Aqui se configura la instancia del componente DeltaGridMVC*@
+@(Html.DeltaGridHtmlHelper("listado").
+        AsignarScriptMaster(scriptMaster).//Debemos asignar la instancia del JServer
+        MostrarOpcionesDeltaGrid(false).//Indicamos que no queremos visualizar las opciones de administración del componente
+        AsignarTipo(typeof(Ticket)). //Asignamos el tipo de dato del modelo a administrar
+        AsignarTitulo("Lista de tickets") //Asignarmos el titulo que queremos visualizar en la tabla
+        )
+
+@section scripts{
+    @*Esta linea es muy importante, ya que aqui se importan los scripts necesarios para el correcto funcionamiento del script*@
+@scriptMaster.ToHtmlString()
+}

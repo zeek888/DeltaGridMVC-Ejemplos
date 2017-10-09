@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <appSettings>
+    <add key="keyEnc" value="1234567891234599" xdt:Transform="InsertIfMissing"  xdt:Locator="Match(key)" />
+    <add key="VEnc" value="123456789123411" xdt:Transform="InsertIfMissing"  xdt:Locator="Match(key)" />
+    <add key="CadenaConexion" value="conexionLocal" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="backendTelerik" value="Mssql" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="providerTelerik" value="System.Data.SqlClient" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="defInsertar" value="{0}_IU" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="defEliminar" value="{0}_Eliminar" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="defObtener" value="{0}_Obtener" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="defObtenerVarios" value="{0}_Obtener" xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+    <add key="servicioCache" value="DeltaUniverse.DeltaCache,DeltaUniverse.DeltaCache.Tipos.CacheMemory,CacheMemory"  xdt:Transform="InsertIfMissing" xdt:Locator="Match(key)" />
+  </appSettings>
+  <connectionStrings xdt:Transform="InsertIfMissing">
+    <add name="conexionLocal" connectionString="Persist Security Info=True;user id=[usr];password=[contrasenia];Initial Catalog=[Base de datos];Data Source=[Servidor];MultipleActiveResultSets=True;" providerName="System.Data.SqlClient" xdt:Transform="InsertIfMissing" />
+  </connectionStrings>
+
+</configuration>

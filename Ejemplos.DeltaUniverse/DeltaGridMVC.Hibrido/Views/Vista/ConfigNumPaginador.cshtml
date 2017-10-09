@@ -1,0 +1,19 @@
+﻿@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+
+@{
+    ViewBag.Title = "SoloLectura";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+}
+
+@(Html.DeltaGridHtmlHelper("listado").
+        AsignarScriptMaster(scriptMaster).
+        MostrarOpcionesDeltaGrid(false).
+        AsignarTipo(typeof(TicketNumPaginas)).
+        AsignarTitulo("Lista de tickets"))
+@section scripts{
+    @scriptMaster.ToHtmlString()
+}
+

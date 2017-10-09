@@ -1,0 +1,13 @@
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\DeltaGridMVC.Ejemplo.Modelos.dll
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\DeltaGridMVC.Ejemplo.Modelos.pdb
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\obj\Debug\DeltaGridMVC.Ejemplo.Modelos.csprojResolveAssemblyReference.cache
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\obj\Debug\DeltaGridMVC.Ejemplo.Modelos.dll
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\obj\Debug\DeltaGridMVC.Ejemplo.Modelos.pdb
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\DeltaGridMVC.Ejemplo.Modelos.dll.config
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\DeltaUniverse.Modelos.dll
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\Delta_util.dll
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\jint.dll
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\Newtonsoft.Json.dll
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\DeltaUniverse.Modelos.pdb
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\Delta_util.pdb
+D:\Repos\EjemplosDG\Ejemplos.DeltaUniverse\DeltaGridMVC.Ejemplo.Modelos\bin\Debug\Newtonsoft.Json.xml

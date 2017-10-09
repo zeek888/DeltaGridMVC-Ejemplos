@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly id="jinit" xdt:Transform="Remove" xdt:Locator="Match(id)">
+        <assemblyIdentity name="Jint" culture="neutral" publicKeyToken="2e92ba9c8d81157f"/>
+        <bindingRedirect oldVersion="0.0.0.0-2.4.0.0" newVersion="2.9.1.0"/>
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
+</configuration>
