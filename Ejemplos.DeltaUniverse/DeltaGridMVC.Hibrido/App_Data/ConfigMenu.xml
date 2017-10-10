@@ -7,17 +7,19 @@
   <dato Id="ConfigFiltros" Grupo="bas"  Nombre="Configurar filtros cliente" Tipo="" Titulo="Lista de tickets con filtros lista y texto (Cliente)"   />
   <dato Id="OcultarColumnas-Editores" Grupo="bas"  Nombre="Ocultar columnas y/o editores" Tipo="" Titulo="Lista de tickets sin visualizar la columna TicketId y el editor Clave"   />
   <dato Id="ConfigNumPaginador" Grupo="bas"  Nombre="Configurar registros por página" Tipo="" Titulo="Lista de tickets mostrando página de datos de 10"   />
+  <dato Id="OperacionServidor" Grupo="bas"  Nombre="Paginación y filtros en servidor" Tipo="" Titulo="Lista de tickets con paginación y filtro en servidor"   />
   
 
-  <dato Id="Validaciones" Grupo="int"  Nombre="Agregar validaciones" Tipo="" Titulo="Lista de tickets"   />
-  <dato Id="ValidacionPersonal" Grupo="int"  Nombre="Validaciones personales" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="AgregarValidacion" Grupo="int"  Nombre="Agregar validaciones" Tipo="" Titulo="Lista de tickets con validaciones en el formulario de edición"   />
+  <dato Id="AgregarValidacionPersonal" Grupo="int"  Nombre="Validaciones personales" Tipo="" Titulo="Tickets con validación personalizada en el campo Folio del formulario"   />
 
-  <dato Id="CambiarDisenioTabla" Grupo="av"  Nombre="Cambiar el diseño de la tabla" Tipo="" Titulo="Lista de tickets"   />
-  <dato Id="PersonalizarEditor" Grupo="av"  Nombre="Crear editor personalizado" Tipo="" Titulo="Lista de tickets"   />
+  <!--<dato Id="CambiarDisenioTabla" Grupo="av"  Nombre="Cambiar el diseño de la tabla" Tipo="" Titulo="Lista de tickets"   />
+  <dato Id="PersonalizarEditor" Grupo="av"  Nombre="Crear editor personalizado" Tipo="" Titulo="Lista de tickets"   />-->
+  <dato Id="FiltroExterno" Grupo="av"  Nombre="Filtrar tabla fuera del contenedor" Tipo="" Titulo="Lista de tickets con filtro externo"   />
   <grupos>
     <grupo Id="bas" Titulo="Basico" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
-    <grupo Id="int" Titulo="Intermedio" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
-    <grupo Id="av" Titulo="Avanzado" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
+    <grupo Id="int" Titulo="Intermedio" Area="Intermedio" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
+    <grupo Id="av" Titulo="Avanzado" Area="Avanzado" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
   </grupos>
 
 </config>

@@ -34,7 +34,7 @@
                         @foreach (XmlNode boton in RazorExtension.ObtenerBotones())
                         {
                             var items = RazorExtension.ObtenerItems(boton.Attributes["Id"].Value);
-
+                            var area = boton.Attributes["Area"] != null ? "?area=" + boton.Attributes["Area"].Value : "";
                             var activo = RazorExtension.RellenarEstatus(items, Request.RequestContext, Url) ? "active" : string.Empty;
                             if (items.Count > 0)
                             {
@@ -46,7 +46,7 @@
                                         @foreach (XmlNode item in items)
                                         {
                                             <li class="@item.Attributes["activo"].Value">
-                                                <a href="@item.Attributes["url"].Value">
+                                                <a href="@string.Concat(item.Attributes["url"].Value,area)">
                                                     @Html.Raw(RazorExtension.ValorAtributo(item, "icono", ""))<span>@item.Attributes["Nombre"].Value</span>
                                                 </a>
                                             </li>

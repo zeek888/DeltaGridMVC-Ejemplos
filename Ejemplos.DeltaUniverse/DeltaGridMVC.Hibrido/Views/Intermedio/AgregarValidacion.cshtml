@@ -1,19 +1,23 @@
-﻿@using DeltaWebControlMVC.Helper
+﻿
+@using DeltaWebControlMVC.Helper
 @using DeltaWebControlMVC.Control
-@using DeltaGridMVC.Ejemplo.Modelos.Test
+@using DeltaGridMVC.Ejemplo.Modelos.Intermedio
 
 @{
-    ViewBag.Title = "Configurando número de registros por página";
+    ViewBag.Title = "Agregar validación al formulario de datos";
     Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
     var scriptMaster = new JServer();
 }
 
+
+
 @(Html.DeltaGridHtmlHelper("listado").
         AsignarScriptMaster(scriptMaster).
         MostrarOpcionesDeltaGrid(false).
-        AsignarTipo(typeof(TicketNumPaginas)).
+        AsignarTipo(typeof(TicketConValidacion)).
         AsignarTitulo("Lista de tickets"))
 @section scripts{
     @scriptMaster.ToHtmlString()
+  
 }
 

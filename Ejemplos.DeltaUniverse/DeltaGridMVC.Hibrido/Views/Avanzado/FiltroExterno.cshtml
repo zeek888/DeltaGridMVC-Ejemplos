@@ -1,0 +1,125 @@
+﻿@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Avanzado
+
+@{
+    ViewBag.Title = "Filtro de tabla con contenedor externo";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+    var config = new DeltaWebControlMVC.Configuracion.DeltaGridOpciones();//Creamos una instancia de configuración del componente
+    config.CrearAplicacion = false;//aqui indicamos que no se debe generar la aplicación para la instancia del componente
+
+}
+<div ng-app="@DeltaWebControlMVC.Configuracion.DGConstantes.NombreAplicacionGrid">
+    <!--aqui se configura la aplicación angular, obteniendo el nombre del modulo-->
+    <div ng-controller="PanelFiltro">
+        <div class="col-lg-8">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                    Filtros
+                </div>
+                <div class="panel-body pan">
+                    <form action="#" class="form-horizontal">
+                        <div class="form-body pal">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="inputName" class="col-md-4 control-label">
+                                            Fecha inicio
+                                        </label>
+                                        <div class="col-md-8">
+                                            <div class="input-icon right">
+                                                <i class="fa fa-calendar"></i>
+                                                <input id="inputName" type="text" tag='fecha' ng-model="FechaInicio" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="inputPassword" class="col-md-4 control-label">
+                                            Fecha fin
+                                        </label>
+                                        <div class="col-md-8">
+                                            <div class="input-icon right">
+                                                <i class="fa fa-calendar"></i>
+                                                <input id="inputPassword" type="text" tag='fecha' ng-model="FechaFin" placeholder="" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-actions pal">
+                            <div class="form-group mbn">
+                                <div class="col-md-offset-3 col-md-6">
+                                    <a href="#" class="btn btn-primary" ng-click="Filtrar();">Filtrar</a>
+                                    <a href="#" class="btn btn-primary" ng-click="QuitarFiltro();" 
+                                       ng-if="ActivarQuitarFiltro()==true" <!--Solo se debe mostrar el boton cuando exista filtro seleccionado-->
+                                       >Quitar filtros</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    @(Html.DeltaGridHtmlHelper("listado").
+        AsignarScriptMaster(scriptMaster).
+        MostrarOpcionesDeltaGrid(false).
+        AsignarOpciones(config).//Asignar las opciones de configuración de la instancia
+        AsignarTipo(typeof(TicketConFiltros)).
+        AsignarTitulo("Lista de tickets"))
+    @scriptMaster.Plantillas()
+    <!--Cuando la aplicación no es creada, se debe ejecutar este método dentro del div de la app
+        para que se impriman las plantillas que son necesarias en el editor-->
+
+</div>
+@section scripts{
+    @scriptMaster.ToHtmlString()
+    <script>
+
+        //Aqui se crea el controlador angular para el panel de filtro
+        //El componente deltagridmvc guarda el módulo angularjs en la variable window.DeltaGrid.ModuloGrid, permitiendo crear mas
+        //directivas, servicios, controladores
+        window.DeltaGrid.ModuloGrid.controller('PanelFiltro', ['$scope', function ($scope) {
+            $scope.fechaInicio = null;
+            $scope.fechaFin = null;
+            $scope.Filtrar = function () {
+                //Cada instancia del componente tiene el nombre de #dgrid_[nombreInstancia], en este caso la instancia se llama listado
+                var scopeLista = angular.element("#dgrid_listado").scope(); //Aqui se obtiene el scope del controlador de la lista, esto se hace
+                //para poder ejecutar el método filtro de forma manual
+                //Cada instancia del componente, usa un isolated scope de angularjs, significa que al scope del modulo, se le asigna un alias, en este caso,
+                //el alias es el nombre de la instancia
+                //Aqui se crea el objeto parametros, el cual es usado para filtrar la tabla, al momento de ejecutar el método RecargarLista
+                scopeLista.listado.parametros = scopeLista.listado.parametros || {};
+
+                //Al enviar propiedades de tipo Fecha, se debe configurar la key formatoFechaHora en el webconfig con el formato
+                //que se enviará a la webapi, en este caso es el formato dd/MM/yyyy
+                scopeLista.listado.parametros.FechaInicio = $scope.FechaInicio;
+                scopeLista.listado.parametros.FechaFin = $scope.FechaFin;
+
+                //El metodo de RecargarLista se encarga de volver a cargar el listado desde el servidor
+                scopeLista.listado.RecargarLista();
+            }
+            $scope.ActivarQuitarFiltro = function () {
+                var scopeLista = angular.element("#dgrid_listado").scope();
+                var filtros = scopeLista.listado.parametros;
+                return filtros != null && (filtros.FechaInicio != null || filtros.FechaFin != null)
+            };
+            $scope.QuitarFiltro = function () {
+                $scope.FechaInicio = null;
+                $scope.FechaFin = null;
+                $scope.Filtrar();
+            };
+        }])
+        $(document).ready(function () {
+            $("input[tag='fecha']").datetimepicker({ lang: 'es', format: 'd/m/Y', timepicker: false, closeOnDateSelect: true, closeOnWithoutClick: true });
+        });
+    </script>
+}
+

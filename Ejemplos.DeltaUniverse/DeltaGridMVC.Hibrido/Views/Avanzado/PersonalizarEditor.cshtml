@@ -1,0 +1,32 @@
+﻿
+@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Intermedio
+
+@{
+    ViewBag.Title = "Personalizar el diseño del editor";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+}
+
+@(Html.DeltaGridHtmlHelper("listado").
+        AsignarScriptMaster(scriptMaster).
+        MostrarOpcionesDeltaGrid(false).
+        AsignarTipo(typeof(TicketConValidacionPersonal)).
+        AsignarTitulo("Lista de tickets"))
+@section scripts{
+    @scriptMaster.ToHtmlString()
+    <script>
+
+        //Aqui se agrega la validación a parsley para que se pueda usar en el formulario de edición
+        window.Parsley
+    .addValidator('folioticket', {
+        validateString: function (value, requirement) {
+            //Devuelve true, solo si el texto (value) inicia con el texto en el parametro(requirement)
+            return value.indexOf(requirement) == 0;
+        }
+    });
+
+    </script>
+}
+

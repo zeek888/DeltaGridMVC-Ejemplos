@@ -9,9 +9,12 @@ namespace DeltaGridMVC.Hibrido.Controllers
     public class VistaController : Controller
     {
         // GET: Vista
-        public ActionResult Ver(string id)
+        public ActionResult Ver(string id, string area = null)
         {
-            return View(id);
+            if (area != null)
+                return View($"~/Views/{area}/{id}.cshtml");
+            else
+                return View(id);
         }
     }
 }
