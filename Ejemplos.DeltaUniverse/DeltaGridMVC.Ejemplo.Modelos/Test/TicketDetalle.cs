@@ -18,9 +18,9 @@ namespace DeltaGridMVC.Ejemplo.Modelos.Test
             set;
         }
 
-        [AttrParametro(System.Data.SqlDbType.BigInt, 19, null, System.Data.ParameterDirection.Input, Enumerados.TIPO_QUERY.INSERTAR)]
-        [AttProp(Titulo = "Ticket", TipoEditor = Enumerados.TIPO_EDITOR.LISTA, Orden = 10)]
-        [AttLista(Campo_texto = "Clave", Opcional = false, Campo_valor = "TicketId", Fuente = "Delta.GEC.Modelos,Delta.GEC.Modelos.Test.Ticket", Prop_texto = "Ticket")]
+        //Se tiene que agregar la operacion Enumerados.TIPO_QUERY.OBTENER_TODOS, para que se pueda filtrar el detalle por ticketId
+        [AttrParametro(System.Data.SqlDbType.BigInt, 19, null, System.Data.ParameterDirection.Input, Enumerados.TIPO_QUERY.INSERTAR, Enumerados.TIPO_QUERY.OBTENER_TODOS)]
+        [AttProp(Titulo = "Ticket", TipoEditor = Enumerados.TIPO_EDITOR.TEXBOX, Orden = 10)]
         [AttColumna("B")]
         public System.Int64 TicketId
         {

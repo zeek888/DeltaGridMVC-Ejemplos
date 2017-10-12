@@ -1,0 +1,102 @@
+﻿
+@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+
+@{
+    ViewBag.Title = "Pintar varias instancias de editores";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+
+    //Aqui se crea y configura la instancia del editor
+    var editorTicket = new DeltaWebControlMVC.Control.DeltaEditorAPI();
+    editorTicket.AsignarTipo(typeof(Ticket), null). //Asignamos el tipo de entidad
+    AsignarFormatoGrid().//Es necesario ejecutar esta instrucción despues de asignar el tipo
+    AsignarScriptMaster(scriptMaster).
+    AsignarId("editor").//Se asigna el nombre de la instancia
+    AsignarPlantilla(new DeltaWebControlMVC.Propiedades.EditorEstatico() //Esta linea es necesaria para poder visualizar el editor
+    {
+        MostrarBotonCancelar = false, //Se indica que no se muestren los botones de guardar y cancelar
+        MostrarBotonGuardar = false
+    });
+
+
+    //Aqui se crea y configura la instancia del editor del detalle
+    var editorDetalle = new DeltaWebControlMVC.Control.DeltaEditorAPI();
+    editorDetalle.AsignarTipo(typeof(TicketDetalle), null). //Asignamos el tipo de entidad
+AsignarFormatoGrid().//Es necesario ejecutar esta instrucción despues de asignar el tipo
+AsignarScriptMaster(scriptMaster).
+AsignarId("detalle").//Se asigna el nombre de la instancia
+AsignarPlantilla(new DeltaWebControlMVC.Propiedades.EditorEstatico() //Esta linea es necesaria para poder visualizar el editor
+{
+    MostrarBotonCancelar = false, //Se indica que no se muestren los botones de guardar y cancelar
+    MostrarBotonGuardar = false
+});
+}
+
+
+<!--Se crea manual el div que contendrá al editor-->
+<div ng-app="@DeltaWebControlMVC.Configuracion.DGConstantes.NombreAplicacionGrid">
+
+
+    <ul id="generalTab" class="nav nav-tabs responsive">
+        <li class="active"><a href="#ticket" data-toggle="tab">Ticket</a></li>
+        <li><a href="#detalle" data-toggle="tab">Detalle</a></li>
+
+    </ul>
+    <!--Se agrega la configuracion del controlador del ticket-->
+    <div id="generalTabContent" class="tab-content responsive" @editorTicket.PintarConfiguracionControlador()>
+        <div id="ticket" class="tab-pane fade in active">
+            <!--Se imprime el codigo del editor para poder ser visualizado-->
+            @(Html.Raw(editorTicket.ToHtmlString())
+            )
+        </div>
+
+
+        <!--Se agrega la configuracion del controlador del detalle-->
+        <div id="detalle" class="tab-pane fade in" @editorDetalle.PintarConfiguracionControlador()>
+            <!--Se imprime el codigo del editor para poder ser visualizado-->
+            @(Html.Raw(editorDetalle.ToHtmlString())
+            )
+        </div>
+    </div>
+
+    @scriptMaster.Plantillas()
+</div>
+
+@section scripts{
+
+    <script>
+        //Con esta función le indicamos al controlador AngularJS DeltaGridAppModulo, que se incluye en el script principals,
+        //que solo necesita los modulos Columna y Editores, de otra manera
+        //los modulos dependientes serán:'DeltaGridColumnas', 'DeltaGridEditores', 'smart-table', 'DeltaGridFiltros'
+        //NOTA: 'DeltaGridComun', 'DeltaGridServicio' no es necesario que se incluyan, ya que se concatenan al arreglo que
+        //       sesta funcion devuelve
+        //NOTA: Esta asignación debe ir antes de incluir los scripts principales del componente
+        window.CargarModulosBasicosDG = function () {
+            return ['DeltaGridEditores'];
+        };
+
+        //Es importante colocar esta linea cuando se usa solo el editor, para no cargar la lista de registro al iniciar el controlador
+        window.callserver = 1;
+        //Aqui pasamos los parametros que se usarán para obtener el registro
+        //NOTA: Esta asignación debe ir antes de incluir los scripts principales del componente
+        window.DGParametros = window.DGParametros || {};
+
+        //Como son dos instancias de editor, a cada uno se le debe pasar los parametros, entonces, de acuerdo al nombre de la instancia
+        //se pasa el objeto con los parametros a cada instancia
+        window.DGParametros["editor"] = { TicketId: 16066 };
+        window.DGParametros["detalle"] = { DetalleId: 53 };
+
+    </script>
+
+    
+    <!--Se importa el script de editores-->
+    @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ImportarScriptIncluido(DeltaWebControlMVC.Configuracion.DGConstantes.RecursoEditoresDG)
+
+    <!--Se importa el script principal-->
+    @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ImportarScriptPrincipal()
+    @scriptMaster.ToHtmlString()
+
+}
+

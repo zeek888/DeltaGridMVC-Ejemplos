@@ -1,0 +1,57 @@
+﻿
+@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+
+@{
+    ViewBag.Title = "Pintar solo editor de un tipo";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+
+    //Aqui se crea y configura la instancia del editor
+    var editorTicket = new DeltaWebControlMVC.Control.DeltaEditorAPI();
+    editorTicket.AsignarTipo(typeof(Ticket), null). //Asignamos el tipo de entidad
+    AsignarFormatoGrid().//Es necesario ejecutar esta instrucción despues de asignar el tipo
+    AsignarScriptMaster(scriptMaster).
+    AsignarId("editor").//Se asigna el nombre de la instancia
+    AsignarPlantilla(new DeltaWebControlMVC.Propiedades.EditorEstatico() //Esta linea es necesaria para poder visualizar el editor
+    {
+        MostrarBotonCancelar = false, //Se indica que no se muestren los botones de guardar y cancelar
+        MostrarBotonGuardar = false
+    });
+}
+
+
+<!--Se crea manual el div que contendrá al editor-->
+<div ng-app="@DeltaWebControlMVC.Configuracion.DGConstantes.NombreAplicacionGrid" @editorTicket.PintarConfiguracionControlador()>
+
+    <!--Se imprime el codigo del editor para poder ser visualizado-->    
+    @(Html.Raw(editorTicket.ToHtmlString())
+    )
+</div>
+
+@section scripts{
+
+    <script>
+        //Con esta función le indicamos al controlador AngularJS DeltaGridAppModulo, que se incluye en el script principals,
+        //que solo necesita los modulos Columna y Editores, de otra manera
+        //los modulos dependientes serán:'DeltaGridColumnas', 'DeltaGridEditores', 'smart-table', 'DeltaGridFiltros'
+        //NOTA: 'DeltaGridComun', 'DeltaGridServicio' no es necesario que se incluyan, ya que se concatenan al arreglo que
+        //       sesta funcion devuelve
+        //NOTA: Esta asignación debe ir antes de incluir los scripts principales del componente
+        window.CargarModulosBasicosDG = function () {
+            return ['DeltaGridColumnas', 'DeltaGridEditores'];
+        };
+
+
+        //Aqui pasamos los parametros que se usarán para obtener el registro
+        //NOTA: Esta asignación debe ir antes de incluir los scripts principales del componente
+        window.DGParametros = { TicketId: 12 };
+    </script>
+    @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ImportarScriptIncluido(DeltaWebControlMVC.Configuracion.DGConstantes.RecursoColumnasDG)
+    @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ImportarScriptIncluido(DeltaWebControlMVC.Configuracion.DGConstantes.RecursoEditoresDG)
+    @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ImportarScriptPrincipal()
+    @scriptMaster.ToHtmlString()
+
+}
+

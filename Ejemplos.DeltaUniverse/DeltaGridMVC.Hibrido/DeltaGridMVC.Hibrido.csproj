@@ -242,6 +242,9 @@
     <Content Include="Views\Avanzado\PersonalizarEditor.cshtml" />
     <Content Include="Views\Avanzado\CambiarDisenioTabla.cshtml" />
     <Content Include="Views\Avanzado\FiltroExterno.cshtml" />
+    <Content Include="Views\Intermedio\ConsumoApi.cshtml" />
+    <Content Include="Views\Intermedio\SoloEditor.cshtml" />
+    <Content Include="Views\Intermedio\VariosEditores.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

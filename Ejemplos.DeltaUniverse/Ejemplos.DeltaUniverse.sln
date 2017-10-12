@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaGridMVC.Ejemplo.Api", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeltaGridMVC.Ejemplo.Modelos", "DeltaGridMVC.Ejemplo.Modelos\DeltaGridMVC.Ejemplo.Modelos.csproj", "{D5F1429D-AB41-4D12-9097-83A039AFD03F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasDG", "PruebasDG\PruebasDG.csproj", "{B1F9EC60-13FA-49C3-8649-EC63AA3EDEF6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5F1429D-AB41-4D12-9097-83A039AFD03F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1F9EC60-13FA-49C3-8649-EC63AA3EDEF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1F9EC60-13FA-49C3-8649-EC63AA3EDEF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1F9EC60-13FA-49C3-8649-EC63AA3EDEF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1F9EC60-13FA-49C3-8649-EC63AA3EDEF6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

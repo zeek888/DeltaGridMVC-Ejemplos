@@ -12,6 +12,10 @@
 
   <dato Id="AgregarValidacion" Grupo="int"  Nombre="Agregar validaciones" Tipo="" Titulo="Lista de tickets con validaciones en el formulario de edición"   />
   <dato Id="AgregarValidacionPersonal" Grupo="int"  Nombre="Validaciones personales" Tipo="" Titulo="Tickets con validación personalizada en el campo Folio del formulario"   />
+  <dato Id="ConsumoApi" Grupo="int"  Nombre="Consumo de Api sin DeltaGridMVC" Tipo="" Titulo="Obtener/guardar ticket con id 12"   />
+  <dato Id="SoloEditor" Grupo="int"  Nombre="Generar solo formulario de edición" Tipo="" Titulo="Ver los datos del ticket 12"   />
+  <dato Id="VariosEditores" Grupo="int"  Nombre="Varias instancias de editores en una pantalla" Tipo="" Titulo="Ver los datos y detalle del ticket 16066"   />
+  
 
   <!--<dato Id="CambiarDisenioTabla" Grupo="av"  Nombre="Cambiar el diseño de la tabla" Tipo="" Titulo="Lista de tickets"   />
   <dato Id="PersonalizarEditor" Grupo="av"  Nombre="Crear editor personalizado" Tipo="" Titulo="Lista de tickets"   />-->
