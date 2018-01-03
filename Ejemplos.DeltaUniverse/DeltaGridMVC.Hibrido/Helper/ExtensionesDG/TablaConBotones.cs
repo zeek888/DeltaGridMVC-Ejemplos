@@ -19,7 +19,7 @@ namespace DeltaGridMVC.Hibrido.Helper.ExtensionesDG
 
             //Si se quiere agregar botones a la barra de herramientas, se usa este metodo
             this.extenderBarraBotones = AgregarBotonesBarra;
-            
+            this.estiloBtnNuevo = "botonActualizar";
         }
 
         private string BotonesExtrasFila()
