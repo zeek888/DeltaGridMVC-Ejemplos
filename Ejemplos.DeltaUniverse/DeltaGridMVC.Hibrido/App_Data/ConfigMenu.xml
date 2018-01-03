@@ -20,6 +20,9 @@
   <!--<dato Id="CambiarDisenioTabla" Grupo="av"  Nombre="Cambiar el diseño de la tabla" Tipo="" Titulo="Lista de tickets"   />
   <dato Id="PersonalizarEditor" Grupo="av"  Nombre="Crear editor personalizado" Tipo="" Titulo="Lista de tickets"   />-->
   <dato Id="FiltroExterno" Grupo="av"  Nombre="Filtrar tabla fuera del contenedor" Tipo="" Titulo="Lista de tickets con filtro externo"   />
+  <dato Id="PersonalizarBotonesTabla" Grupo="av"  Nombre="Personalizar botones tabla" Tipo="" Titulo="Lista de tickets con acciones personalizadas"   />
+  <dato Id="ReemplazarBotonesTabla" Grupo="av"  Nombre="Reemplazar barra y celda botones tabla" Tipo="" Titulo="Lista de tickets con barra y celda de botones reemplazados"   />
+  
   <grupos>
     <grupo Id="bas" Titulo="Basico" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />
     <grupo Id="int" Titulo="Intermedio" Area="Intermedio" Icono="&lt;i class=&quot;fa fa-files-o&quot;&gt;&lt;/i&gt;" />

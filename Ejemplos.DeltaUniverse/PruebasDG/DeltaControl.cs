@@ -86,7 +86,7 @@ namespace PruebasDG
                 ctrl.CrearConexion(conexion, null, true, true);
 
                 //Al ejecutar el método de obtener, el resultado se guarda en la propiedad Dato
-                ctrl.Obtener(new Ticket() { TicketId = ticketId });
+                ctrl.Obtener(new Ticket() { TicketId = ticketId,Clave="123" });
 
                 //Al ejecutar el método de obtener listado, el resultado se guarda en la propiedad Lista
                 ctrlDetalle.ObtenerListado(new TicketDetalle() { TicketId = ticketId });
@@ -129,7 +129,7 @@ namespace PruebasDG
                 //llamar cualquier otra operacion del controlador
 
                 ctrlTicket.CrearConexion(null, tran, true, true);
-
+                
 
                 //Aqui se inserta los datos del ticket, se debe especificar el parametro finalizar=false, para poder
                 //finalizar la transacción de forma manual, en caso contrario, se finaliza la transacción antes de insertar

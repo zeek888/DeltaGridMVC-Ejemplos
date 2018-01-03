@@ -192,6 +192,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Content\archivos\cshtml\test.cshtml.txt" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -228,6 +229,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\ExtensionesDG\TablaBotonesPersonales.cs" />
+    <Compile Include="Helper\ExtensionesDG\TablaConBotones.cs" />
     <Compile Include="Helper\RazorExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -245,6 +248,8 @@
     <Content Include="Views\Intermedio\ConsumoApi.cshtml" />
     <Content Include="Views\Intermedio\SoloEditor.cshtml" />
     <Content Include="Views\Intermedio\VariosEditores.cshtml" />
+    <Content Include="Views\Avanzado\PersonalizarBotonesTabla.cshtml" />
+    <Content Include="Views\Avanzado\ReemplazarBotonesTabla.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -259,6 +264,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\archivos\js\" />
+    <Folder Include="Content\archivos\sql\" />
     <Folder Include="Views\Editor\" />
   </ItemGroup>
   <PropertyGroup>

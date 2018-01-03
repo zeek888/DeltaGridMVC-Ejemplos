@@ -1,0 +1,182 @@
+﻿
+@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+
+@{
+    ViewBag.Title = "Consulta y edición del ticket con id 12";
+    Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+    var scriptMaster = new JServer();
+}
+
+<div ng-app="Ticket" ng-controller="ControlTicket" ng-init="Iniciar();">
+    <div class="col-lg-8">
+        <div class="panel panel-yellow">
+            <div class="panel-heading">
+                Datos del ticket
+            </div>
+            <div class="panel-body pan">
+                <form action="#" class="form-horizontal">
+                    <div class="form-body pal">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="folio" class="col-md-4 control-label">
+                                        Folio
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-icon right">
+                                            <input id="folio" type="text" ng-model="ticket.Folio" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fecha" class="col-md-4 control-label">
+                                        Fecha
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-icon right">
+                                            <i class="fa fa-calendar"></i>
+                                            <input id="fecha" type="text" tag='fecha' ng-model="ticket.Fecha" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Nombre" class="col-md-4 control-label">
+                                        Nombre
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-icon right">
+                                            <input id="Nombre" type="text" ng-model="ticket.NombreCliente" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="Apellidos" class="col-md-4 control-label">
+                                        Apellidos
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-icon right">
+                                            <input id="Apellidos" type="text"  ng-model="ticket.ApellidosCliente" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="RFCEmisor" class="col-md-4 control-label">
+                                        RFC Emisor
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-icon right">
+                                            <input id="RFCEmisor" type="text" ng-model="ticket.RFCEmisor" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="RFCReceptor" class="col-md-4 control-label">
+                                        RFC Receptor
+                                    </label>
+                                    <div class="col-md-8">
+                                        <div class="input-icon right">
+                                            <input id="RFCReceptor" type="text" ng-model="ticket.RFCReceptor" placeholder="" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-actions pal">
+                        <div class="form-group mbn">
+                            <div class="col-md-offset-3 col-md-6">
+                                <a href="#" class="btn btn-primary" ng-click="Guardar();">Guardar</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+
+    <!-- Con esta linea se importa el script principal del componente, contiene los modulos de consulta a api y control de tabla y formulario de edición-->
+    @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ImportarScriptPrincipal()
+
+    <script>
+
+
+
+        //Con esta linea se crea la variable window.tipoTicket que contiene el tipo de dato Ticket encriptado
+        @DeltaWebControlMVC.Helper.DeltaGridUtilerias.ExponerTipoEncriptado(typeof(Ticket),"tipoTicket")
+
+        //Aqui se obtiene la url de la api
+        window.urlApi = '@DeltaWebControlMVC.Helper.Config.UrlApiDeltaGrid';
+
+        //Aqui se obtiene el prefijo del controlador genérico de la web api
+        window.prefijoApi = '@DeltaUniverse.Modelos.Base.ConfiguracionDG.PrefijoApiDG';
+
+        //Se crea modulo y controlador de tipo ticket
+        //Los servicios de 'DeltaGridComun','DeltaGridServicio' se encuentran en el script principal
+        window.moduloTicket = angular.module('Ticket', ['DeltaGridComun', 'DeltaGridServicio']);
+        window.moduloTicket.controller('ControlTicket', function ($scope, DeltaGridService) {
+            $scope.Iniciar = function () {
+                DeltaGridService.FijarConfiguracion({ UrlApi: window.urlApi, PrefijoApi: window.prefijoApi })
+                $scope.ObtenerTicket(12);
+            };
+
+            $scope.ObtenerTicket = function (ticketId) {
+
+                //Se consume el método de insertar del servicio DeltaGridService
+                //Recibe dos parametros:                
+                //1.- El tipo de dato del modelo
+                //2.- El objeto JSON que contiene los parametros a enviar a la API
+                DeltaGridService.obtener(window.tipoTicket, { TicketId: ticketId }).then(function (data) {
+                    $scope.ticket = data.data;
+                },
+                    function (error) {
+                        alert('Error al obtener los datos');
+                    });
+
+            }
+
+
+            $scope.Guardar = function () {
+
+                //Se consume el método de insertar del servicio DeltaGridService
+                //Recibe dos parametros:
+                //1.- El objeto JSON a guardar
+                //2.- El tipo de dato del modelo
+                DeltaGridService.insertar($scope.ticket, window.tipoTicket).then(function (data) {
+
+                    alert('Datos guardados');
+                },
+                function (error) {
+                    console.log(error);
+                    alert('Error al guardar');
+                });
+            };
+
+        });
+
+        $(document).ready(function () {
+            $("input[tag='fecha']").datetimepicker({ lang: 'es', format: 'd/m/Y', timepicker: false, closeOnDateSelect: true, closeOnWithoutClick: true });
+        });
+    </script>
+}
+

@@ -36,7 +36,6 @@ namespace DeltaGridMVC.Ejemplo.Modelos.Test
             set;
         }
 
-        [AttrParametro(System.Data.SqlDbType.DateTime, 0, null, System.Data.ParameterDirection.Input, Enumerados.TIPO_QUERY.INSERTAR)]
         [AttProp(Titulo = "Fecha", TipoEditor = Enumerados.TIPO_EDITOR.TEXBOX, Orden = 30)]
         [AttColumna("D")]
         public virtual System.DateTime Fecha

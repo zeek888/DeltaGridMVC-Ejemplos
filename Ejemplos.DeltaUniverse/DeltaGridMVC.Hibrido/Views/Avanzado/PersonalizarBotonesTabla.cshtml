@@ -1,0 +1,40 @@
+﻿
+@using DeltaWebControlMVC.Helper
+@using DeltaWebControlMVC.Control
+@using DeltaGridMVC.Ejemplo.Modelos.Test
+@using DeltaGridMVC.Hibrido.Helper.ExtensionesDG
+
+    @{
+        ViewBag.Title = "Personalizar botones de la tabla";
+        Layout = "~/Views/Shared/_LayoutTemplate.cshtml";
+        var scriptMaster = new JServer();
+    }
+
+    @(Html.DeltaGridHtmlHelper("listado").
+        AsignarScriptMaster(scriptMaster).
+        MostrarOpcionesDeltaGrid(false).
+        AsignarTipo(typeof(Ticket)).
+        AsignarManejadorTabla(new TablaConBotones()).
+        AsignarTitulo("Lista de tickets"))
+    @section scripts{
+
+        <script>
+
+            //Aqui se extiende el controlador de la tabla listado, para agregar el metodo saludar, al scope aislado
+            window.DeltaGrid = window.DeltaGrid || {};
+            window.DeltaGrid.ExtensionControl = [];
+            window.DeltaGrid.ExtensionControl['listado'] = function (scope, $scope) {
+                scope.saludar = function (entidad) {
+                    alert('Hola, diste clic en el ticket:' + entidad.Folio);
+                };
+                scope.agregarRegistro = function () {
+                    alert('Clic en agregar nuevo registro personalizado');
+                };
+            };
+
+        </script>
+
+        @scriptMaster.ToHtmlString()
+
+    }
+

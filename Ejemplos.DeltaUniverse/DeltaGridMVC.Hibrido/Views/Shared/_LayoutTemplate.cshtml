@@ -18,7 +18,27 @@
 </head>
 <body>
     <div>
+        <div id="theme-setting">
+            <a href="#" data-toggle="dropdown" data-step="1" data-intro="&lt;b&gt;Many styles&lt;/b&gt; and &lt;b&gt;colors&lt;/b&gt; be created for you. Let choose one and enjoy it!"
+               data-position="left" class="btn-theme-setting"><i class="fa fa-cog"></i></a>
+            <div class="content-theme-setting">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a href="#" onclick="AbrirDocumento('cshtml', 'test.cshtml');"> <i class="fa fa-cog"></i>AAA</a>
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-cog"></i>AAA
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-cog"></i>AAA
+                    </div>
+                    <div class="col-md-3">
+                        <i class="fa fa-cog"></i>AAA
+                    </div>
+                </div>
 
+            </div>
+        </div>
         <!--BEGIN BACK TO TOP-->
         <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
         <!--END BACK TO TOP-->
@@ -107,7 +127,28 @@
             <!--END PAGE WRAPPER-->
         </div>
     </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="doc">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body">
+                    <div >
+                        <pre id="codigo"></pre>
 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <script type="text/javascript">
+
+
+    </script>
     <!--Scripts DeltaGridMVC-->
     @Html.Partial("_ScriptsDG")
     <script src="@Url.Content("~/Scripts/html5shiv.js")"></script>
